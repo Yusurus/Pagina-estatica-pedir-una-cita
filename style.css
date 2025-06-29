@@ -1,0 +1,190 @@
+body {
+    font-family: 'Comic Sans MS', cursive;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: linear-gradient(#fdf6f0, #ffeef2);
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+}
+
+.container {
+    background-color: #fff0f5;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    position: relative;
+    z-index: 10;
+    border: 2px solid #ffc0cb;
+}
+
+h1 {
+    color: #d63384;
+    margin-bottom: 30px;
+    font-size: 2.5em;
+    animation: pulse 2s ease-in-out infinite alternate;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
+
+.subtitle {
+    color: #d63384;
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+@keyframes pulse {
+    from { transform: scale(1); }
+    to { transform: scale(1.05); }
+}
+
+.buttons {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+button {
+    padding: 15px 30px;
+    font-size: 1.2em;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    font-weight: bold;
+    font-family: 'Comic Sans MS', cursive;
+}
+
+#yesBtn {
+    background-color: #ff69b4;
+    color: white;
+    border: 2px solid #ff1493;
+}
+
+#yesBtn:hover {
+    background-color: #ff1493;
+    transform: translateY(-3px);
+}
+
+#noBtn {
+    background-color: #ffc0cb;
+    color: #d63384;
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    z-index: 100;
+    border: 2px solid #d63384;
+}
+
+#noBtn:hover {
+    background-color: #ffb6c1;
+}
+
+.no-move {
+    pointer-events: none;
+    cursor: default;
+}
+
+.message {
+    margin-top: 30px;
+    font-size: 1.8em;
+    color: #d63384;
+    font-weight: bold;
+    display: none;
+    animation: celebration 1s ease-in-out infinite alternate;
+}
+
+@keyframes celebration {
+    from { transform: scale(1); }
+    to { transform: scale(1.1); }
+}
+
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    pointer-events: none;
+    z-index: 1000;
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* Estilos para las flores flotantes */
+.flor {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ff69b4;
+    border-radius: 50%;
+    animation: flotar 10s linear infinite;
+    opacity: 0.8;
+    z-index: 1;
+}
+
+.flor::before,
+.flor::after {
+    content: '';
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    background: #ffc0cb;
+    border-radius: 50%;
+}
+
+.flor::before {
+    transform: translate(-10px, -10px);
+}
+
+.flor::after {
+    transform: translate(10px, -10px);
+}
+
+@keyframes flotar {
+    0% {
+        transform: translateY(100vh) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Flores especiales más grandes */
+.flor-grande {
+    width: 30px;
+    height: 30px;
+}
+
+.flor-grande::before,
+.flor-grande::after {
+    width: 30px;
+    height: 30px;
+}
+
+/* Corazones flotantes */
+.corazon {
+    position: absolute;
+    font-size: 20px;
+    color: #ff69b4;
+    animation: flotar 8s linear infinite;
+    z-index: 1;
+}
